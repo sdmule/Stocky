@@ -67,13 +67,14 @@ async function handleLogout() {
 
       <BaseButton variant="secondary" @click="handleLogout">Log out</BaseButton>
 
-    <SideSheet v-if="goalSheetOpen" title="Weight goal" @close="goalSheetOpen = false">
-      <GoalRateOptions
-        :model-value="pendingGoalRate"
-        :profile="profile"
-        @update:model-value="handleGoalRateChange"
-      />
-    </SideSheet>
+      <SideSheet v-if="goalSheetOpen" title="Weight goal" @close="goalSheetOpen = false">
+        <GoalRateOptions
+          :model-value="pendingGoalRate"
+          :profile="profile"
+          @update:model-value="handleGoalRateChange"
+        />
+      </SideSheet>
+    </div>
   </AppShell>
 </template>
 
