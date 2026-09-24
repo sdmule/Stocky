@@ -99,7 +99,11 @@ function goToLogFood() {
   height: 3.5rem;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(155deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 78%, black));
+  background: linear-gradient(
+    155deg,
+    var(--color-accent),
+    color-mix(in srgb, var(--color-accent) 78%, black)
+  );
   color: #fff;
   cursor: pointer;
   transform: translateY(-1.1rem);

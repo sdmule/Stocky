@@ -7,18 +7,22 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run",
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "firebase": "^11.3.1",
     "vue": "rc",
-    "vue-router": "^4.5.0",
-    "firebase": "^11.3.1"
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.5.1",
+    "jsdom": "^30.1.1",
     "prettier": "3.9.6",
     "vite": "^8.2.2",
-    "vite-plugin-vue-devtools": "^8.2.1"
+    "vite-plugin-vue-devtools": "^8.2.1",
+    "vitest": "^5.0.1"
   },
   "engines": {
     "node": "^22.18.0 || >=24.12.0"
