@@ -66,7 +66,6 @@ async function handleLogout() {
       <p v-if="savedMessage" class="settings-view__saved">{{ savedMessage }}</p>
 
       <BaseButton variant="secondary" @click="handleLogout">Log out</BaseButton>
-    </div>
 
     <SideSheet v-if="goalSheetOpen" title="Weight goal" @close="goalSheetOpen = false">
       <GoalRateOptions
