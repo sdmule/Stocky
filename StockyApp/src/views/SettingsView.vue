@@ -4,15 +4,23 @@ import { useRouter } from 'vue-router'
 import AppShell from '@/components/layout/AppShell.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
 import SideSheet from '@/components/common/SideSheet.vue'
+import ToggleSwitch from '@/components/common/ToggleSwitch.vue'
 import ProfileDetailsForm from '@/components/profile/ProfileDetailsForm.vue'
 import GoalRateOptions from '@/components/profile/GoalRateOptions.vue'
 import { useAuth } from '@/composables/useAuth'
 import { useCalorieGoal } from '@/composables/useCalorieGoal'
+import { useTheme } from '@/composables/useTheme'
 import { GOAL_RATE_PRESETS } from '@/utils/calorie'
 
 const { profile, logout } = useAuth()
 const { saveProfileDetails, saveGoalRate } = useCalorieGoal()
+const { theme, toggleTheme } = useTheme()
 const router = useRouter()
+
+const isDarkMode = computed({
+  get: () => theme.value === 'dark',
+  set: () => toggleTheme(),
+})
 
 const savedMessage = ref('')
 const goalSheetOpen = ref(false)
@@ -65,6 +73,10 @@ async function handleLogout() {
 
       <p v-if="savedMessage" class="settings-view__saved">{{ savedMessage }}</p>
 
+      <div class="settings-view__row">
+        <ToggleSwitch v-model="isDarkMode" label="Dark mode" />
+      </div>
+
       <BaseButton variant="secondary" @click="handleLogout">Log out</BaseButton>
 
       <SideSheet v-if="goalSheetOpen" title="Weight goal" @close="goalSheetOpen = false">
@@ -104,5 +116,14 @@ async function handleLogout() {
 .settings-view__saved {
   color: var(--color-accent);
   font-size: 0.9rem;
+}
+
+.settings-view__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border-radius: 0.75rem;
+  padding: 0.9rem 1rem;
 }
 </style>

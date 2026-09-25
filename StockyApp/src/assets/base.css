@@ -9,8 +9,18 @@
   --color-danger: #d94f4f;
 }
 
+:root[data-theme='dark'] {
+  --color-background: #14161a;
+  --color-surface: #1e2126;
+  --color-border: #2c2f36;
+  --color-text: #f2f3f5;
+  --color-text-muted: #9aa0ab;
+  --color-accent: #3fb072;
+  --color-danger: #e5716f;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --color-background: #14161a;
     --color-surface: #1e2126;
     --color-border: #2c2f36;
